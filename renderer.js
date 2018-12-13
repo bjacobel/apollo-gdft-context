@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { ApolloProvider, getDataFromTree } from "react-apollo";
+import { ApolloProvider, getDataFromTree, Query } from "react-apollo";
 import { ApolloClient } from "apollo-client";
 import { ApolloLink, Observable } from "apollo-link";
 import { InMemoryCache } from "apollo-cache-inmemory";
+import gql from "graphql-tag";
 
 import MyContext from "./MyContext";
 import ContextEater from "./ContextEater";
@@ -16,10 +17,20 @@ export default async () => {
     cache: new InMemoryCache()
   });
 
+  const query = gql`
+    query {
+      id
+    }
+  `;
+
   const AppToRender = (
     <MyContext.Provider value={"a string"}>
       <ApolloProvider client={client}>
-        <ContextEater />
+        <Query query={query}>
+          {({ loading, error, data }) => (
+            <ContextEater data={data} />
+          )}
+        </Query>
       </ApolloProvider>
     </MyContext.Provider>
   );

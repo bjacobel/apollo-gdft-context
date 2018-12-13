@@ -4,7 +4,10 @@ import MyContext from "./MyContext";
 
 export default class ContextEater extends React.Component {
   render() {
-    return `the value of the context is ${this.context}`
+    if (this.context.hasOwnProperty("client")) {
+      throw new Error("Supposed to recieve a context of type MyContext. Got one of ApolloClient.");
+    }
+    return `Context: ${this.context} | Data: ${this.props.data}`
   }
 }
 

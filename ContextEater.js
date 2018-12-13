@@ -7,7 +7,7 @@ export default class ContextEater extends React.Component {
     if (this.context.hasOwnProperty("client")) {
       throw new Error("Supposed to recieve a context of type MyContext. Got one of ApolloClient.");
     }
-    return `Context: ${this.context} | Data: ${this.props.data}`
+    return `Context: ${this.context} | Data: ${this.props.data.id}`
   }
 }
 

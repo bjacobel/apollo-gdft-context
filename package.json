@@ -1,0 +1,29 @@
+{
+  "name": "apollo-gdft-context",
+  "version": "0.0.1",
+  "private": false,
+  "description": "repro case for getDataFromTree issue",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "apollo-cache-inmemory": "1.1.12",
+    "apollo-client": "2.2.8",
+    "apollo-link": "1.2.2",
+    "graphql": "0.13.2",
+    "react": "16.6.3",
+    "react-apollo": "2.2.4",
+    "react-dom": "16.6.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge",
+    "babel-jest": "^23.4.2",
+    "jest-cli": "^23.1.0",
+    "jest-environment-node": "^23.1.0"
+  }
+}
